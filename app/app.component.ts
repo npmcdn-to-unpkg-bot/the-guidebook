@@ -1,30 +1,32 @@
 import {Component} from 'angular2/core';
-import {LineService} from './lines.service'
-import {OnInit} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {LineService} from './lines.service';
 
 @Component({
     selector: 'guidebook',
     styleUrls: ['./app/app.component.css'],
-    providers: [LineService],
+    directives: [ROUTER_DIRECTIVES],
+    providers: [
+        ROUTER_PROVIDERS,
+        LineService
+    ],
     template: `
         <h1>Guidebook</h1>
-        <ul>
-            <li *ngFor="#area of areas">{{area.name}}</li>
-        </ul>
+        <nav>
+            <a [routerLink]="['AreaList']">Areas</a>
+        </nav>
+        <router-outlet></router-outlet>
 	`
 })
-export class AppComponent implements OnInit {
-   private areas: any[];
- 
-   constructor(private _lineService: LineService){}
- 
-   getAreas() {
-     this._lineService.getAreas()
-       .then(areas => this.areas = areas);
-   }
-   
-   ngOnInit() {
-       this.getAreas();
-   }
+@RouteConfig([
+    {
+        path: '/areas',
+        name: "AreaList",
+        component: AreasComponent,
+        useAsDefault: true
+    }
+])
+export class AppComponent {
+  
 }
 

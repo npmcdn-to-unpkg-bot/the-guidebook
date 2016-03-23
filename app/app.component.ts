@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+
 import {LineService} from './lines.service';
+import {AreasComponent} from './areas.component';
 
 @Component({
     selector: 'guidebook',

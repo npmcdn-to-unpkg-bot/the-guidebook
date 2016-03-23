@@ -1,7 +1,7 @@
 System.config({
 	transpiler: 'typescript',
     map: {
-		app: "./app"
+		app: "./bin"
 	},
 	packages: {
 		app: {

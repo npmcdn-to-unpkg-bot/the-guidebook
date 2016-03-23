@@ -3,6 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 
 import {LineService} from './lines.service';
 import {AreasComponent} from './areas.component';
+import {AreaDetailComponent} from './area-detail.component';
 
 @Component({
     selector: 'guidebook',
@@ -13,7 +14,7 @@ import {AreasComponent} from './areas.component';
         LineService
     ],
     template: `
-        <h1>Guidebook</h1>
+        <h1>{{title}}</h1>
         <nav>
             <a [routerLink]="['AreaList']">Areas</a>
         </nav>
@@ -26,9 +27,14 @@ import {AreasComponent} from './areas.component';
         name: "AreaList",
         component: AreasComponent,
         useAsDefault: true
+    },
+    {
+        path: '/area/:id',
+        name: 'AreaDetail',
+        component: AreaDetailComponent
     }
 ])
 export class AppComponent {
-  
+    private title: string = "Guidebook";
 }
 

@@ -5,14 +5,14 @@ import {LineService} from './lines.service';
 import {Area} from './area.interface';
 
 @Component({
-    selector: '[gb-areas]',
+    selector: '[gb-area-list]',
 	template: `
 		<ul>
             <li *ngFor="#area of areas" (click)="gotoArea(area)">{{area.name}}</li>
         </ul>
 	`
 })
-export class AreasComponent implements OnInit {
+export class AreaListComponent implements OnInit {
    private areas: Area[];
  
    constructor (

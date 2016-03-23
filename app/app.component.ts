@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 
 import {LineService} from './lines.service';
-import {AreasComponent} from './areas.component';
+import {AreaListComponent} from './area-list.component';
 import {AreaDetailComponent} from './area-detail.component';
 
 @Component({
@@ -25,7 +25,7 @@ import {AreaDetailComponent} from './area-detail.component';
     {
         path: '/areas',
         name: "AreaList",
-        component: AreasComponent,
+        component: AreaListComponent,
         useAsDefault: true
     },
     {

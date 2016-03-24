@@ -6,7 +6,7 @@ import {Area} from './area.interface';
 import {LineService} from './lines.service';
 
 @Component({
-    selector: '[gb-area-detail]',
+    selector: 'gb-area-detail',
     directives: [LineListComponent],
 	template: `
         <div *ngIf="area">
